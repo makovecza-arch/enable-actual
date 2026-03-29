@@ -1,0 +1,30 @@
+{
+  "name": "enable-actual",
+  "version": "1.0.0",
+  "description": "Enable Banking to Actual Budget synchronization",
+  "private": true,
+  "homepage": "https://github.com/2manyvcos/enable-actual#readme",
+  "bugs": {
+    "url": "https://github.com/2manyvcos/enable-actual/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2manyvcos/enable-actual.git"
+  },
+  "license": "MIT",
+  "author": "Aaron Burmeister",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --env-file=.env src/server.js"
+  },
+  "dependencies": {
+    "@actual-app/api": "^26.3.0",
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.7",
+    "jsonwebtoken": "^9.0.3",
+    "node-cron": "^4.2.1",
+    "node-fetch": "^3.3.2"
+  }
+}
