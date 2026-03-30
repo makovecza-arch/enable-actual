@@ -9,3 +9,5 @@ TODO: note about how to configure actualbudget and oauth (start with password an
 TODO: note about official Docker image: https://hub.docker.com/r/2manyvcos/enable-actual
 
 TODO: note about untested transactions with foreign currencies
+
+TODO: add notification on startup if auth is required
