@@ -26,9 +26,13 @@ async function fetchTransactions(accountUID, syncState) {
   });
 
   const dateTo = getDate(new Date());
-  let { date: dateFrom } = syncState;
-  if (dateFrom) dateFrom = addDate(dateFrom, -SYNC_OVERSCAN_DAYS);
-  else dateFrom = addDate(dateTo, -SYNC_INITIAL_DAYS);
+  let { initial, date: dateFrom } = syncState;
+  if (!initial) initial = addDate(dateTo, -SYNC_INITIAL_DAYS);
+  if (!dateFrom) dateFrom = initial;
+  else {
+    dateFrom = addDate(dateFrom, -SYNC_OVERSCAN_DAYS);
+    if (new Date(dateFrom) < new Date(initial)) dateFrom = initial;
+  }
 
   let { transactions, next } = await client.getTransactions({
     uid: accountUID,
@@ -42,7 +46,7 @@ async function fetchTransactions(accountUID, syncState) {
     transactions.push(...nextTransactions);
   }
 
-  return { state: { date: dateTo }, transactions };
+  return { state: { initial, date: dateTo }, transactions };
 }
 
 module.exports = fetchTransactions;
