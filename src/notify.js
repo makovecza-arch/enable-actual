@@ -4,13 +4,17 @@ const {
   NTFY_USERNAME,
   NTFY_PASSWORD,
   APP_NAME,
+  PUBLIC_URL,
 } = require("./config");
 
 function notify(message, url) {
   console.log(`\n\n! ${message}${url ? ` - ${url}` : ""}\n\n`);
 
   if (NTFY_URL) {
-    const headers = new Headers({ Title: APP_NAME });
+    const headers = new Headers({
+      Title: APP_NAME,
+      Click: url ?? PUBLIC_URL,
+    });
 
     if (NTFY_USERNAME && NTFY_PASSWORD) {
       headers.set(
@@ -18,8 +22,6 @@ function notify(message, url) {
         `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`,
       );
     }
-
-    if (url) headers.set("Click", url);
 
     fetch(NTFY_URL, {
       method: "POST",

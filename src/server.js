@@ -5,6 +5,9 @@ const cron = require("node-cron");
 const { PORT, PUBLIC_URL, SYNC_SCHEDULE, APP_NAME } = require("./config");
 const sync = require("./sync");
 const ebRouter = require("./eb/router");
+const checkSession = require("./checkSession");
+
+checkSession();
 
 console.log(`Starting sync scheduler for ${SYNC_SCHEDULE}…`);
 cron.schedule(SYNC_SCHEDULE, sync);
@@ -16,7 +19,9 @@ app.set("views", path.join(__dirname, "./views"));
 app.use(express.urlencoded());
 
 app.get("/", (req, res) => {
-  res.send(`Hello from ${APP_NAME}`);
+  res.render("index", {
+    appName: APP_NAME,
+  });
 });
 
 app.get("/health", (req, res) => {
@@ -25,6 +30,10 @@ app.get("/health", (req, res) => {
 
 app.get("/auth", (req, res) => {
   res.redirect(new URL("eb/auth", PUBLIC_URL).href);
+});
+
+app.get("/sync", (req, res) => {
+  res.redirect(new URL("eb/sync", PUBLIC_URL).href);
 });
 
 app.use("/eb", ebRouter);

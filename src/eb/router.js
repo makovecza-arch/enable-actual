@@ -14,6 +14,7 @@ const {
 } = require("../config");
 const { putState } = require("../state");
 const EBClient = require("./client");
+const sync = require("../sync");
 
 const router = express.Router();
 
@@ -127,6 +128,14 @@ router.post("/select", (req, res) => {
     },
   });
   activeAuth = undefined;
+
+  console.log("EB authorization done");
+
+  res.send("Done");
+});
+
+router.get("/sync", async (req, res) => {
+  await sync();
 
   res.send("Done");
 });

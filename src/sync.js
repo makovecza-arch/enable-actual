@@ -1,37 +1,17 @@
-const { PUBLIC_URL, SESSION_EXPIRY_WARNING } = require("./config");
 const fetchTransactions = require("./eb/fetchTransactions");
 const importTransactions = require("./actual/importTransactions");
 const notify = require("./notify");
 const { loadState, putState } = require("./state");
+const checkSession = require("./checkSession");
 
 async function sync() {
   console.log(`Starting sync at ${new Date().toLocaleString()}…`);
 
-  const { source, sync } = loadState();
-
-  if (!source) {
-    notify(
-      "There is no account session configured yet. Please authenticate.",
-      new URL("auth", PUBLIC_URL).href,
-    );
+  if (!checkSession()) {
     return;
   }
 
-  if (source.expiry && SESSION_EXPIRY_WARNING > 0) {
-    const now = Date.now();
-    const expiry = new Date(source.expiry);
-    const warning = expiry.getTime() - SESSION_EXPIRY_WARNING;
-    if (now >= warning) {
-      const remainingDays = Math.floor(
-        Math.max(0, expiry.getTime() - now) / (24 * 60 * 60 * 1000),
-      );
-
-      notify(
-        `Your account session expires in ${remainingDays} days. Please don't forget to reauthenticate in time.`,
-        new URL("auth", PUBLIC_URL).href,
-      );
-    }
-  }
+  const { source, sync } = loadState();
 
   const results = await Promise.all(
     source.accountUIDs?.map(async (accountUID) => {
