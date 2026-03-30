@@ -3,7 +3,7 @@ const fetch = require("node-fetch").default;
 
 class EBClient {
   constructor({ api, appID, privateKey }) {
-    this.api = api;
+    this.api = api.replace(/\/*$/g, "");
     this.appID = appID;
     this.privateKey = privateKey;
   }

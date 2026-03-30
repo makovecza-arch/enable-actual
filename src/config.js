@@ -9,17 +9,17 @@ module.exports.SYNC_SCHEDULE = process.env.SYNC_SCHEDULE ?? "0 0 * * *";
 
 module.exports.SYNC_INITIAL_DAYS = Math.max(
   0,
-  +process.env.SYNC_INITIAL_DAYS || 30,
+  +(process.env.SYNC_INITIAL_DAYS || 30),
 );
 
 module.exports.SYNC_OVERSCAN_DAYS = Math.max(
   0,
-  +process.env.SYNC_OVERSCAN_DAYS || 7,
+  +(process.env.SYNC_OVERSCAN_DAYS || 7),
 );
 
 module.exports.SESSION_EXPIRY_WARNING = Math.max(
   0,
-  +process.env.SESSION_EXPIRY_WARNING || 7 * 24 * 60 * 60 * 1000,
+  +(process.env.SESSION_EXPIRY_WARNING || 7 * 24 * 60 * 60 * 1000),
 );
 
 module.exports.DATA_DIR =
@@ -58,7 +58,7 @@ if (!fs.existsSync(module.exports.EB_PRIVATE_KEY_FILE)) {
 
 module.exports.EB_TOKEN_VALIDITY = Math.max(
   0,
-  +process.env.EB_TOKEN_VALIDITY || 180 * 24 * 60 * 60 * 1000,
+  +(process.env.EB_TOKEN_VALIDITY || 180 * 24 * 60 * 60 * 1000),
 );
 
 module.exports.EB_BANK_NAME = process.env.EB_BANK_NAME;

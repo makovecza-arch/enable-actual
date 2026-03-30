@@ -1,7 +1,7 @@
 {
   "name": "enable-actual",
   "version": "1.1.1",
-  "description": "Enable Banking to Actual Budget synchronization",
+  "description": "Import transactions from European banks into Actual Budget using Enable Banking",
   "private": true,
   "homepage": "https://github.com/2manyvcos/enable-actual#readme",
   "bugs": {

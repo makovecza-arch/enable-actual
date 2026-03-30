@@ -7,7 +7,7 @@ function checkSession() {
 
   if (!source) {
     notify(
-      "There is no account session configured yet. Please authenticate.",
+      "There is no account session configured yet. Please authorize.",
       new URL("auth", PUBLIC_URL).href,
     );
 
@@ -24,7 +24,7 @@ function checkSession() {
       );
 
       notify(
-        `Your account session expires in ${remainingDays} days. Please don't forget to reauthenticate in time.`,
+        `Your account session expires in ${remainingDays} days. Please don't forget to reauthorize in time.`,
         new URL("auth", PUBLIC_URL).href,
       );
     }
