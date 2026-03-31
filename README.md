@@ -95,32 +95,32 @@ This setup:
 
 ## Configuration
 
-| Variable                 | Description                                                         | Default                         |
-| ------------------------ | ------------------------------------------------------------------- | ------------------------------- |
-| `APP_NAME`               | Application name                                                    | `Enable Actual`                 |
-| `PORT`                   | HTTP port                                                           | `3000`                          |
-| `SYNC_SCHEDULE`          | Cron schedule for syncing                                           | `0 0 * * *`                     |
-| `SYNC_INITIAL_DAYS`      | Days to fetch on first sync                                         | `30`                            |
-| `SYNC_OVERSCAN_DAYS`     | Overlap days for syncing                                            | `7`                             |
-| `SESSION_EXPIRY_WARNING` | Notify before session expiry (ms)                                   | `7 days`                        |
-| `DATA_DIR`               | Data directory                                                      | `./data`                        |
-| `PUBLIC_URL`             | Public service URL (must match redirect URL without `/eb/callback`) | `http://localhost:{PORT}`       |
-| `NTFY_URL`               | ntfy.sh URL                                                         | —                               |
-| `NTFY_USERNAME`          | Optional username                                                   | —                               |
-| `NTFY_PASSWORD`          | Optional password                                                   | —                               |
-| `EB_API`                 | Enable Banking API URL                                              | `https://api.enablebanking.com` |
-| `EB_APP_ID`              | Enable Banking App ID                                               | —                               |
-| `EB_PRIVATE_KEY_FILE`    | Path to private key                                                 | `./private.pem`                 |
-| `EB_TOKEN_VALIDITY`      | Session validity (ms)                                               | `180 days`                      |
-| `EB_BANK_NAME`           | Bank name (e.g. `N26`)                                              | —                               |
-| `EB_BANK_COUNTRY`        | Bank country (e.g. `DE`)                                            | —                               |
-| `EB_PSU_TYPE`            | PSU type                                                            | `personal`                      |
-| `ACTUAL_DATA_DIR`        | Actual data directory                                               | `{DATA_DIR}/actual`             |
-| `ACTUAL_URL`             | Actual Budget URL                                                   | —                               |
-| `ACTUAL_PASSWORD`        | Server password                                                     | —                               |
-| `ACTUAL_BUDGET_ID`       | Budget sync ID                                                      | —                               |
-| `ACTUAL_BUDGET_PASSWORD` | Budget password                                                     | —                               |
-| `ACTUAL_ACCOUNT_ID`      | Target account ID                                                   | —                               |
+| Variable                 | Description                                                                           | Default                         |
+| ------------------------ | ------------------------------------------------------------------------------------- | ------------------------------- |
+| `APP_NAME`               | Application name                                                                      | `Enable Actual`                 |
+| `PORT`                   | HTTP port                                                                             | `3000`                          |
+| `SYNC_SCHEDULE`          | Cron schedule for syncing                                                             | `0 0 * * *`                     |
+| `SYNC_INITIAL_DAYS`      | Days to fetch on first sync                                                           | `30`                            |
+| `SYNC_OVERSCAN_DAYS`     | Overlap days for syncing                                                              | `7`                             |
+| `SESSION_EXPIRY_WARNING` | Notify before session expiry (ms)                                                     | `7 days`                        |
+| `DATA_DIR`               | Data directory                                                                        | `./data`                        |
+| `PUBLIC_URL`             | Public service URL (must match what is configured in your Enable Banking application) | `http://localhost:{PORT}`       |
+| `NTFY_URL`               | ntfy.sh URL                                                                           | —                               |
+| `NTFY_USERNAME`          | Optional username                                                                     | —                               |
+| `NTFY_PASSWORD`          | Optional password                                                                     | —                               |
+| `EB_API`                 | Enable Banking API URL                                                                | `https://api.enablebanking.com` |
+| `EB_APP_ID`              | Enable Banking App ID                                                                 | —                               |
+| `EB_PRIVATE_KEY_FILE`    | Path to private key                                                                   | `./private.pem`                 |
+| `EB_TOKEN_VALIDITY`      | Session validity (ms)                                                                 | `180 days`                      |
+| `EB_BANK_NAME`           | Bank name (e.g. `N26`)                                                                | —                               |
+| `EB_BANK_COUNTRY`        | Bank country (e.g. `DE`)                                                              | —                               |
+| `EB_PSU_TYPE`            | PSU type                                                                              | `personal`                      |
+| `ACTUAL_DATA_DIR`        | Actual data directory                                                                 | `{DATA_DIR}/actual`             |
+| `ACTUAL_URL`             | Actual Budget URL                                                                     | —                               |
+| `ACTUAL_PASSWORD`        | Server password                                                                       | —                               |
+| `ACTUAL_BUDGET_ID`       | Budget sync ID                                                                        | —                               |
+| `ACTUAL_BUDGET_PASSWORD` | Budget password                                                                       | —                               |
+| `ACTUAL_ACCOUNT_ID`      | Target account ID                                                                     | —                               |
 
 ---
 
