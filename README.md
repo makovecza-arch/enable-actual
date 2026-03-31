@@ -2,6 +2,18 @@
 
 **Import transactions from European banks into Actual Budget using Enable Banking.**
 
+<div style="display: flex; flex-wrap: wrap; gap: .5em; margin: 1.6em 0 -.3em">
+  <a href="https://hub.docker.com/r/2manyvcos/enable-actual" target="_blank">
+    <img alt="Docker Image Version" src="https://img.shields.io/docker/v/2manyvcos/enable-actual?logo=docker&label=2manyvcos%2Fenable-actual" />
+  </a>
+  <a href="https://github.com/2manyvcos/enable-actual/blob/main/LICENSE" target="_blank">
+    <img alt="License" src="https://img.shields.io/github/license/2manyvcos/enable-actual?color=%239944ee" />
+  </a>
+  <a href="https://github.com/2manyvcos/enable-actual" target="_blank">
+    <img alt="Git Repository" src="https://img.shields.io/github/stars/2manyvcos/enable-actual?label=Source" />
+  </a>
+</div>
+
 [Enable Banking](https://enablebanking.com) provides free (for personal use) access to bank transactions via official PSD2 APIs.
 Enable Actual uses this service to automatically import your bank transactions into [Actual Budget](https://actualbudget.com).
 
