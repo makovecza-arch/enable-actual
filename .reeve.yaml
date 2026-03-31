@@ -1,0 +1,27 @@
+---
+type: pipeline
+name: Build Enable Actual
+
+when:
+  workerGroup:
+    include: [soldier]
+  trigger:
+    include: [commit, action]
+  file:
+    include:
+      - package.json
+      - .reeve.yaml
+  action:
+    include: [enable-actual:build]
+
+steps:
+  - name: Get package version
+    task: "@reeve/node-get-package-version"
+
+  - name: Build image
+    task: "@docker/build"
+    params:
+      DOCKER_LOGIN_REGISTRIES: { env: docker/hub/login }
+      NAME: docker.io/2manyvcos/enable-actual
+      TAG: { var: PACKAGE_VERSION }
+      PLATFORM: amd64
