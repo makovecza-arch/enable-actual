@@ -178,9 +178,9 @@ export default class EBClient {
     const jwt = this.createJWT();
 
     const search = new URLSearchParams();
-    if (dateFrom) search.set('date_from', dateFrom);
-    if (dateTo) search.set('date_to', dateTo);
-    if (transactionStatus) search.set('transaction_status', transactionStatus);
+    if (dateFrom) search.set('date_from', dateFrom.split('T')[0]);
+    if (dateTo) search.set('date_to', dateTo.split('T')[0]);
+    // if (transactionStatus) search.set('transaction_status', transactionStatus);
     if (continuationKey) search.set('continuation_key', continuationKey);
     const res = await fetch(
       `${this.api}/accounts/${encodeURIComponent(accountUID)}/transactions?${search.toString()}`,
