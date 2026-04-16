@@ -6,7 +6,7 @@ RUN adduser app
 RUN chown app:app /app
 USER app
 
-COPY --chown=app:app package.json package-lock.json .
+COPY --chown=app:app package.json package-lock.json ./
 RUN npm install
 COPY --chown=app:app src src
 
