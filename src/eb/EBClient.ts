@@ -188,6 +188,8 @@ export default class EBClient {
         headers: {
           Accept: 'application/json',
           Authorization: `Bearer ${jwt}`,
+          'PSU-IP-Address': '192.168.1.4',
+          'PSU-User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         },
       },
     );
