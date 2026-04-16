@@ -178,9 +178,9 @@ export default class EBClient {
     const jwt = this.createJWT();
 
     const search = new URLSearchParams();
-    if (dateFrom) search.set('date_from', dateFrom.split('T')[0]);
-    if (dateTo) search.set('date_to', dateTo.split('T')[0]);
-    // if (transactionStatus) search.set('transaction_status', transactionStatus);
+    if (dateFrom) search.set('fromDate', dateFrom.split('T')[0]);
+    if (dateTo) search.set('toDate', dateTo.split('T')[0]);
+    if (transactionStatus) search.set('transaction_status', transactionStatus);
     if (continuationKey) search.set('continuation_key', continuationKey);
     const res = await fetch(
       `${this.api}/accounts/${encodeURIComponent(accountUID)}/transactions?${search.toString()}`,
@@ -188,8 +188,6 @@ export default class EBClient {
         headers: {
           Accept: 'application/json',
           Authorization: `Bearer ${jwt}`,
-          'PSU-IP-Address': '192.168.1.4',
-          'PSU-User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         },
       },
     );
